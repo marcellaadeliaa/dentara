@@ -1,0 +1,249 @@
+/**
+ * DENTARA PATIENT PORTAL THEME
+ * File: assets/css/pasien_theme.css
+ */
+
+.patient-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-app);
+  padding-bottom: 80px; /* Space for mobile bottom bar */
+}
+
+/* ====================================================================
+   1. PATIENT NAVBAR (WARM & CHEERFUL)
+   ==================================================================== */
+.patient-navbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 990;
+  padding: var(--space-3) 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.patient-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.patient-desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.patient-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.patient-nav-item:hover, .patient-nav-item.active {
+  background: var(--primary-100);
+  color: var(--primary-800);
+}
+
+/* ====================================================================
+   2. GREETING HERO & PATIENT PROFILE BAR
+   ==================================================================== */
+.patient-hero-banner {
+  background: linear-gradient(135deg, rgba(43,181,160,0.12) 0%, rgba(91,157,245,0.15) 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+  border: 1px solid rgba(43,181,160,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.patient-hero-text h1 {
+  font-size: var(--text-2xl);
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+/* ====================================================================
+   3. TICKET-STYLE QUEUE CARD (.ticket-card)
+   ==================================================================== */
+.ticket-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border-color);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: var(--space-6);
+}
+
+/* Left portion: Queue Number & Doctor */
+.ticket-main {
+  flex: 1;
+  padding: var(--space-6);
+  position: relative;
+}
+
+.ticket-divider {
+  width: 2px;
+  border-left: 2px dashed var(--border-color);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cutout notches on ticket sides */
+.ticket-divider::before, .ticket-divider::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background-color: var(--bg-app);
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  left: -14px;
+  z-index: 2;
+}
+.ticket-divider::before { top: -14px; }
+.ticket-divider::after { bottom: -14px; }
+
+/* Right portion: QR Code & Status */
+.ticket-side {
+  width: 220px;
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-subtle);
+  text-align: center;
+}
+
+.ticket-number-huge {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  margin: var(--space-2) 0;
+}
+
+@media (max-width: 768px) {
+  .ticket-card {
+    flex-direction: column;
+  }
+  .ticket-side {
+    width: 100%;
+    border-top: 2px dashed var(--border-color);
+  }
+  .ticket-divider { display: none; }
+}
+
+/* ====================================================================
+   4. TIMELINE REKAM MEDIS
+   ==================================================================== */
+.emr-timeline {
+  position: relative;
+  padding-left: var(--space-8);
+}
+.emr-timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 12px;
+  width: 2px;
+  background: var(--border-color);
+}
+.emr-timeline-item {
+  position: relative;
+  margin-bottom: var(--space-6);
+}
+.emr-timeline-node {
+  position: absolute;
+  left: -32px;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  box-shadow: 0 0 0 4px var(--primary-100);
+}
+
+/* ====================================================================
+   5. MOBILE BOTTOM NAVIGATION
+   ==================================================================== */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--bottomnav-height);
+  background: var(--surface);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.06);
+  z-index: 1000;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 var(--space-2);
+}
+
+.bottom-nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  flex: 1;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.bottom-nav-link i {
+  font-size: 22px;
+}
+
+.bottom-nav-link.active {
+  color: var(--primary);
+}
+
+.bottom-nav-link .nav-badge {
+  position: absolute;
+  top: -2px;
+  right: 20%;
+  background: var(--danger);
+  color: #fff;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 768px) {
+  .patient-desktop-menu { display: none; }
+  .bottom-nav { display: flex; }
+}
+
