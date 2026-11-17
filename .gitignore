@@ -1,0 +1,28 @@
+# Logs & Temp files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Laragon / Server specifics
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Local database files
+*.sqlite
+*.db
+
+# Backup files
+*.bak
+*.sql~

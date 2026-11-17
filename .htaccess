@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Cegah browsing direktori
+    Options -Indexes
+
+    # Jangan alihkan jika file atau folder fisik memang ada di server
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Arahkan seluruh pretty URL ke index.php
+    RewriteRule ^ index.php [L,QSA]
+</IfModule>
+
+# Keamanan file sensitif
+<FilesMatch "\.(sql|log|env|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
