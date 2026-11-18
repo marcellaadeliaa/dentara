@@ -507,28 +507,28 @@ input:checked + .slider:before {
 }
 
 /* ====================================================================
-   4. TABLES & SEKAT-SEKAT DATA (.table, .table-custom, .table-responsive)
+   4. TABLES & DATA LISTS (.table, .table-custom, .table-responsive, .dentara-card-list)
    ==================================================================== */
 .table-responsive {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  border-radius: 12px;
-  border: 1.5px solid #CBD5E1;
+  border-radius: 14px;
+  border: 1px solid #E2E8F0;
   background: var(--surface);
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
   margin-bottom: var(--space-4);
 }
 .card .table-responsive {
-  border-radius: 10px;
-  border: 1.5px solid #CBD5E1;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
   margin-bottom: 0;
 }
 .card.p-0 {
-  border: 1.5px solid #CBD5E1 !important;
-  border-radius: 12px !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 14px !important;
   overflow: hidden !important;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03) !important;
 }
 .card.p-0 > .table-responsive {
   border: none !important;
@@ -547,18 +547,18 @@ input:checked + .slider:before {
   background: var(--surface);
 }
 
-/* Table Header (Sekat tegas & background solid slate/gradient lembut) */
+/* Table Header (Modern, Bersih, Tanpa Sekat Vertikal Kaku) */
 .table thead th, .table-custom thead th {
-  background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%) !important;
-  color: #334155 !important;
+  background: #F8FAFC !important;
+  color: #475569 !important;
   font-family: var(--font-body);
-  font-weight: 800 !important;
+  font-weight: 750 !important;
   font-size: 11.5px !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.75px !important;
-  padding: 13px 18px !important;
-  border-bottom: 2px solid #CBD5E1 !important;
-  border-right: 1.5px solid #CBD5E1 !important;
+  letter-spacing: 0.6px !important;
+  padding: 14px 20px !important;
+  border-bottom: 2px solid #E2E8F0 !important;
+  border-right: none !important;
   white-space: nowrap !important;
   vertical-align: middle !important;
 }
@@ -566,34 +566,34 @@ input:checked + .slider:before {
   border-right: none !important;
 }
 
-/* Table Body (Sekat kolom & divider baris jelas dan rapi) */
+/* Table Body (Spacious, Elegant, Divider Horizontal Halus) */
 .table tbody td, .table-custom tbody td {
-  padding: 13px 18px !important;
+  padding: 15px 20px !important;
   color: #1E293B !important;
-  border-bottom: 1px solid #E2E8F0 !important;
-  border-right: 1.5px solid #E2E8F0 !important;
+  border-bottom: 1px solid #F1F5F9 !important;
+  border-right: none !important;
   vertical-align: middle !important;
   font-size: 13.5px !important;
-  transition: background-color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 .table tbody td:last-child, .table-custom tbody td:last-child {
   border-right: none !important;
 }
 
-/* Zebra striping (Bergantian baris putih dan abu lembut agar kontras dan mudah dibaca) */
+/* Zebra striping lembut */
 .table tbody tr:nth-child(even) td,
 .table-custom tbody tr:nth-child(even) td {
-  background-color: #F8FAFC !important;
+  background-color: #FAFCFE !important;
 }
 .table tbody tr:nth-child(odd) td,
 .table-custom tbody tr:nth-child(odd) td {
   background-color: #FFFFFF !important;
 }
 
-/* Hover feedback lembut (Mint highlight) */
+/* Hover feedback modern (Mint Glow) */
 .table tbody tr:hover td,
 .table-custom tbody tr:hover td {
-  background-color: #E6F7F4 !important;
+  background-color: #F0FDF9 !important;
 }
 
 /* Baris Terakhir */
@@ -604,15 +604,103 @@ input:checked + .slider:before {
 
 /* Footer / Total */
 .table tfoot td, .table-custom tfoot td {
-  padding: 13px 18px !important;
+  padding: 14px 20px !important;
   font-weight: 800 !important;
-  background: #F1F5F9 !important;
-  border-top: 2px solid #CBD5E1 !important;
-  border-right: 1.5px solid #E2E8F0 !important;
+  background: #F8FAFC !important;
+  border-top: 2px solid #E2E8F0 !important;
+  border-right: none !important;
   color: #1E293B !important;
 }
 .table tfoot td:last-child, .table-custom tfoot td:last-child {
   border-right: none !important;
+}
+
+/* ====================================================================
+   MODERN CARD LIST & ALTERNATIVE LAYOUTS (Bukan Tabel Kaku)
+   ==================================================================== */
+.dentara-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dentara-card-item {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 18px 22px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.dentara-card-item:hover {
+  border-color: #2BB5A0;
+  box-shadow: 0 8px 20px rgba(43, 181, 160, 0.12);
+  transform: translateY(-2px);
+}
+.dentara-card-item.accent-left-teal {
+  border-left: 4px solid #2BB5A0;
+}
+.dentara-card-item.accent-left-blue {
+  border-left: 4px solid #5B9DF5;
+}
+.dentara-card-item.accent-left-orange {
+  border-left: 4px solid #F97316;
+}
+
+/* Speech Bubble / Quote untuk Keluhan & Catatan */
+.dentara-quote-bubble {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #334155;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.dentara-quote-bubble i {
+  color: #94A3B8;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+/* Activity Feed Timeline */
+.activity-feed-list {
+  display: flex;
+  flex-direction: column;
+}
+.activity-feed-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #F1F5F9;
+  transition: background-color 0.2s ease;
+  gap: 16px;
+}
+.activity-feed-item:last-child {
+  border-bottom: none;
+}
+.activity-feed-item:hover {
+  background-color: #F8FAFC;
+}
+.activity-feed-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  background: #F0FDF9;
+  color: #0F766E;
+  border: 1px solid #CCFBF1;
+  flex-shrink: 0;
+}
 }
 
 /* Table Variants */

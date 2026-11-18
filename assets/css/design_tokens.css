@@ -17,6 +17,9 @@
   --primary-300: #5EEAD4;
   --primary-400: #2DD4BF;
   --primary: #2BB5A0;         /* Primary brand color */
+  --primary-teal: #2BB5A0;    /* Alias primary teal */
+  --primary-teal-dark: #0F766E;
+  --primary-teal-light: #CCFBF1;
   --primary-600: #0D9488;
   --primary-700: #0F766E;
   --primary-800: #115E59;
@@ -28,14 +31,17 @@
   --secondary-100: #DBEAFE;
   --secondary-300: #93C5FD;
   --secondary: #5B9DF5;       /* Secondary brand color */
+  --accent-blue: #5B9DF5;     /* Alias accent blue */
   --secondary-600: #2563EB;
   --secondary-700: #1D4ED8;
   --secondary-rgb: 91, 157, 245;
 
-  /* Accent: Soft Violet (Kesan ramah, estetik modern) */
+  /* Accent: Soft Violet & Orange */
   --accent-50: #F5F3FF;
   --accent-100: #EDE9FE;
   --accent: #8B7CF6;
+  --accent-purple: #8B7CF6;
+  --accent-orange: #F97316;
   --accent-600: #7C3AED;
   --accent-rgb: 139, 124, 246;
 
