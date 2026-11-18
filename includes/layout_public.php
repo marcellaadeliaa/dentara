@@ -84,9 +84,16 @@ function render_public_layout(string $title, callable $content_callback, string 
                     <i class="bx bx-moon"></i>
                 </button>
 
-                <a href="<?= base_url('login_pasien.php') ?>" class="btn btn-secondary btn-sm">
-                    <i class="bx bxs-user"></i> Masuk Pasien
-                </a>
+                <?php if (!empty($_SESSION['id_pengguna']) && !empty($_SESSION['role'])): ?>
+                    <a href="<?= get_dashboard_redirect($_SESSION['role']) ?>" class="btn btn-primary btn-sm" style="font-weight:750; box-shadow:0 2px 8px rgba(43,181,160,0.3);">
+                        <i class="bx bxs-dashboard"></i> Portal <?= ucfirst($_SESSION['role']) ?>
+                    </a>
+                <?php else: ?>
+                    <a href="<?= base_url('login_pasien.php') ?>" class="btn btn-secondary btn-sm">
+                        <i class="bx bxs-user"></i> Masuk Pasien
+                    </a>
+                <?php endif; ?>
+
                 <a href="<?= base_url('booking.php') ?>" class="btn btn-primary btn-sm">
                     <i class="bx bx-calendar-plus"></i> Booking Janji
                 </a>

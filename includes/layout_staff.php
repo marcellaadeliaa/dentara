@@ -102,6 +102,9 @@ function render_staff_layout(string $title, callable $content_callback, string $
                         <a href="<?= base_url('admin/kelola_artikel.php') ?>" class="nav-link <?= $active_menu === 'artikel' ? 'active' : '' ?>">
                             <i class="bx bxs-news"></i> <span>Edukasi & Artikel</span>
                         </a>
+                        <a href="<?= base_url('admin/kelola_faq.php') ?>" class="nav-link <?= $active_menu === 'faq' ? 'active' : '' ?>">
+                            <i class="bx bxs-help-circle"></i> <span>Kelola FAQ</span>
+                        </a>
                         <a href="<?= base_url('admin/kelola_promo.php') ?>" class="nav-link <?= $active_menu === 'promo' ? 'active' : '' ?>">
                             <i class="bx bxs-purchase-tag"></i> <span>Banner Promo</span>
                         </a>
@@ -135,8 +138,14 @@ function render_staff_layout(string $title, callable $content_callback, string $
                         <a href="<?= base_url('dokter/panel_antrian.php') ?>" class="nav-link <?= $active_menu === 'panel_antrian' ? 'active' : '' ?>">
                             <i class="bx bxs-user-voice"></i> <span>Antrean Ruangan</span>
                         </a>
+                        <a href="<?= base_url('dokter/pemeriksaan.php') ?>" class="nav-link <?= $active_menu === 'pemeriksaan' ? 'active' : '' ?>">
+                            <i class="bx bxs-smile"></i> <span>Pemeriksaan & Odontogram</span>
+                        </a>
                         <a href="<?= base_url('dokter/riwayat_pasien.php') ?>" class="nav-link <?= $active_menu === 'riwayat_pasien' ? 'active' : '' ?>">
                             <i class="bx bxs-folder-open"></i> <span>Riwayat Rekam Medis</span>
+                        </a>
+                        <a href="<?= base_url('dokter/cetak_rekam.php') ?>" class="nav-link <?= $active_menu === 'cetak_rekam' ? 'active' : '' ?>">
+                            <i class="bx bxs-printer"></i> <span>Cetak Resume Medis</span>
                         </a>
                     </nav>
 
@@ -154,6 +163,9 @@ function render_staff_layout(string $title, callable $content_callback, string $
                         </a>
                         <a href="<?= base_url('resepsionis/walkin.php') ?>" class="nav-link <?= $active_menu === 'walkin' ? 'active' : '' ?>">
                             <i class="bx bxs-user-plus"></i> <span>Pendaftaran Walk-In</span>
+                        </a>
+                        <a href="<?= base_url('resepsionis/prioritas_antrian.php') ?>" class="nav-link <?= $active_menu === 'prioritas' ? 'active' : '' ?>">
+                            <i class="bx bxs-traffic-barrier"></i> <span>Prioritas Antrean</span>
                         </a>
                         <a href="<?= base_url('resepsionis/data_pasien.php') ?>" class="nav-link <?= $active_menu === 'pasien' ? 'active' : '' ?>">
                             <i class="bx bxs-id-card"></i> <span>Data Pasien & RM</span>
@@ -175,6 +187,9 @@ function render_staff_layout(string $title, callable $content_callback, string $
                         <a href="<?= base_url('apoteker/stok_supply.php') ?>" class="nav-link <?= $active_menu === 'stok_supply' ? 'active' : '' ?>">
                             <i class="bx bxs-shield"></i> <span>Dental Supply</span>
                         </a>
+                        <a href="<?= base_url('apoteker/alert_stok.php') ?>" class="nav-link <?= $active_menu === 'alert_stok' ? 'active' : '' ?>">
+                            <i class="bx bxs-error-alt"></i> <span>Peringatan Stok & Expired</span>
+                        </a>
                         <a href="<?= base_url('apoteker/stock_opname.php') ?>" class="nav-link <?= $active_menu === 'stock_opname' ? 'active' : '' ?>">
                             <i class="bx bx-clipboard"></i> <span>Stock Opname</span>
                         </a>
@@ -185,6 +200,9 @@ function render_staff_layout(string $title, callable $content_callback, string $
                     <nav class="sidebar-nav">
                         <a href="<?= base_url('kasir/dashboard_tagihan.php') ?>" class="nav-link <?= $active_menu === 'dashboard_tagihan' ? 'active' : '' ?>">
                             <i class="bx bxs-receipt"></i> <span>Tagihan Pasien</span>
+                        </a>
+                        <a href="<?= base_url('kasir/dashboard_tagihan.php?status=lunas') ?>" class="nav-link <?= $active_menu === 'riwayat_lunas' ? 'active' : '' ?>">
+                            <i class="bx bxs-check-shield"></i> <span>Riwayat Kuitansi Lunas</span>
                         </a>
                         <a href="<?= base_url('kasir/rekap_shift.php') ?>" class="nav-link <?= $active_menu === 'rekap_shift' ? 'active' : '' ?>">
                             <i class="bx bxs-bank"></i> <span>Shift & Kas</span>
@@ -220,7 +238,7 @@ function render_staff_layout(string $title, callable $content_callback, string $
                         <i class="bx bx-moon"></i>
                     </button>
 
-                    <!-- Staff User Profile -->
+                    <!-- Staff User Profile & Quick Logout -->
                     <div class="user-profile-btn">
                         <div class="user-avatar"><?= strtoupper(substr($user['nama_lengkap'] ?? 'S', 0, 1)) ?></div>
                         <div class="d-none d-sm-block text-left">
@@ -228,6 +246,10 @@ function render_staff_layout(string $title, callable $content_callback, string $
                             <span class="badge badge-mint" style="padding:2px 8px; font-size:10px;"><?= e($role_name) ?></span>
                         </div>
                     </div>
+
+                    <a href="<?= base_url('includes/process/logout.php') ?>" class="btn btn-ghost btn-sm text-danger no-spa" title="Keluar / Ganti Akun" style="font-size:12px; font-weight:700; padding:6px 10px; border-radius:8px;">
+                        <i class="bx bx-log-out" style="font-size:17px; vertical-align:middle;"></i> <span class="d-none d-md-inline">Keluar</span>
+                    </a>
                 </div>
             </header>
 
