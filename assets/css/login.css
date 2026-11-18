@@ -1,0 +1,147 @@
+/**
+ * DENTARA AUTHENTICATION STYLES (LOGIN & REGISTER)
+ * File: assets/css/login.css
+ */
+
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-app);
+  padding: var(--space-4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background floating decorative circles */
+.auth-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.blob-1 {
+  width: 450px;
+  height: 450px;
+  background: rgba(43, 181, 160, 0.25);
+  top: -100px;
+  left: -100px;
+}
+.blob-2 {
+  width: 500px;
+  height: 500px;
+  background: rgba(91, 157, 245, 0.25);
+  bottom: -120px;
+  right: -120px;
+}
+
+.auth-card-2col {
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  min-height: 580px;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+/* Left Brand & Mascot Panel */
+.auth-left-panel {
+  flex: 1;
+  background: var(--grad-mint-blue);
+  color: #FFFFFF;
+  padding: var(--space-10) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-left-panel::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  bottom: -50px;
+  right: -50px;
+  border-radius: 50%;
+}
+
+.auth-slogan h2 {
+  color: #FFFFFF;
+  font-size: var(--text-2xl);
+  margin-top: var(--space-4);
+  line-height: 1.2;
+}
+
+.auth-mascot-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--space-6) 0;
+}
+
+.auth-trust-note {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Right Form Panel */
+.auth-right-panel {
+  flex: 1.1;
+  padding: var(--space-10) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-header {
+  margin-bottom: var(--space-6);
+}
+.auth-header h1 {
+  font-size: var(--text-2xl);
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.auth-footer {
+  margin-top: var(--space-6);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* Staff Theme Overrides */
+.theme-staff .auth-left-panel {
+  background: linear-gradient(135deg, #1E293B 0%, #0F766E 100%);
+}
+
+/* Patient Theme Overrides */
+.theme-patient .auth-left-panel {
+  background: linear-gradient(135deg, #2BB5A0 0%, #3B82F6 100%);
+}
+
+@media (max-width: 768px) {
+  .auth-card-2col {
+    flex-direction: column;
+  }
+  .auth-left-panel {
+    display: none; /* Hide illustrative panel on small mobile screens */
+  }
+  .auth-right-panel {
+    padding: var(--space-6) var(--space-4);
+  }
+}
+

@@ -1,0 +1,19 @@
+{
+  "name": "DENTARA - SIM Klinik Gigi Modern",
+  "short_name": "DENTARA",
+  "description": "Sistem Informasi Manajemen Klinik Gigi Terintegrasi dari Pendaftaran Online sampai Pembayaran",
+  "start_url": "index.php",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F7FBFC",
+  "theme_color": "#2BB5A0",
+  "icons": [
+    {
+      "src": "assets/img/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

@@ -1,0 +1,187 @@
+/**
+ * DENTARA TV RUANG TUNGGU (QUEUE MONITOR)
+ * File: assets/css/tv.css
+ */
+
+.tv-body {
+  background: #0B132B;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ====================================================================
+   1. TV HEADER
+   ==================================================================== */
+.tv-header {
+  height: 90px;
+  background: #111D3B;
+  border-bottom: 2px solid #1E2D5A;
+  padding: 0 var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tv-clock {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+/* ====================================================================
+   2. TV MAIN GRID
+   ==================================================================== */
+.tv-main-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-8);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Main Display: Sedang Dipanggil */
+.tv-current-call-box {
+  background: linear-gradient(135deg, #162447 0%, #1F4068 100%);
+  border-radius: var(--radius-xl);
+  border: 3px solid var(--primary);
+  box-shadow: 0 0 40px rgba(43, 181, 160, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tv-call-badge {
+  background: var(--primary);
+  color: #0B132B;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  padding: 8px 32px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--space-4);
+}
+
+.tv-number-huge {
+  font-family: var(--font-heading);
+  font-size: clamp(80px, 12vw, 150px);
+  font-weight: 800;
+  line-height: 1;
+  color: #FFFFFF;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+  margin: var(--space-2) 0;
+}
+
+.tv-doctor-box {
+  font-size: 28px;
+  font-weight: 700;
+  color: #64DDBB;
+  margin-top: var(--space-2);
+}
+.tv-room-box {
+  font-size: 20px;
+  color: #94A3B8;
+}
+
+/* Flash animation saat dipanggil */
+.tv-current-call-box.is-calling {
+  animation: tv-flash 1.2s infinite alternate;
+}
+@keyframes tv-flash {
+  0% { border-color: var(--primary); box-shadow: 0 0 30px rgba(43, 181, 160, 0.4); }
+  100% { border-color: #FFD166; box-shadow: 0 0 70px rgba(255, 209, 102, 0.9); }
+}
+
+/* Sidebar: Antrean Menunggu */
+.tv-waiting-list {
+  background: #111D3B;
+  border-radius: var(--radius-xl);
+  border: 1px solid #1E2D5A;
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+}
+.tv-waiting-header {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid #1E2D5A;
+  margin-bottom: var(--space-4);
+}
+.tv-waiting-items {
+  flex: 1;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.tv-waiting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: #162447;
+  border-radius: var(--radius-md);
+  font-size: 20px;
+  font-weight: 700;
+}
+.tv-waiting-number {
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: 26px;
+}
+
+/* ====================================================================
+   3. RUNNING TICKER
+   ==================================================================== */
+.tv-ticker-bar {
+  height: 54px;
+  background: #0D1630;
+  border-top: 2px solid #1E2D5A;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.tv-ticker-label {
+  background: var(--primary);
+  color: #0B132B;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  z-index: 10;
+}
+.tv-ticker-content {
+  white-space: nowrap;
+  animation: tv-ticker 30s linear infinite;
+  font-size: 18px;
+  color: #E2E8F0;
+  padding-left: 100%;
+}
+@keyframes tv-ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
