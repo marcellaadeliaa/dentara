@@ -1,6 +1,6 @@
 <?php
 /**
- * DENTARA - Patient Login Process
+ * DENTARA - Patient Login Process (Supports Seamless AJAX & Standard POST)
  * File: includes/process/login_pasien_process.php
  */
 
@@ -8,15 +8,37 @@ require_once __DIR__ . '/../helpers.php';
 require_once __DIR__ . '/../db_connect.php';
 require_once __DIR__ . '/../auth.php';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ' . base_url('login_pasien.php'));
+$is_ajax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') || 
+           (isset($_SERVER['CONTENT_TYPE']) && str_contains($_SERVER['CONTENT_TYPE'], 'application/json'));
+
+function respond_patient_login(bool $success, string $message, string $redirect = '', string $flash_type = 'error'): void {
+    global $is_ajax;
+    if ($is_ajax) {
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode([
+            'success'  => $success,
+            'message'  => $message,
+            'redirect' => $redirect
+        ]);
+        exit;
+    }
+
+    if ($success) {
+        set_flash('success', 'Selamat Datang!', $message);
+        header('Location: ' . ($redirect ?: base_url('pasien/dashboard.php')));
+    } else {
+        set_flash($flash_type, 'Gagal Masuk', $message);
+        header('Location: ' . base_url('login_pasien.php'));
+    }
     exit;
 }
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    respond_patient_login(false, 'Metode permintaan tidak valid.');
+}
+
 if (!verify_csrf()) {
-    set_flash('error', 'Token Tidak Valid', 'Sesi formulir telah kedaluwarsa. Silakan ulangi.');
-    header('Location: ' . base_url('login_pasien.php'));
-    exit;
+    respond_patient_login(false, 'Sesi formulir telah kedaluwarsa. Silakan ulangi.');
 }
 
 $email = trim($_POST['email'] ?? '');
@@ -25,15 +47,11 @@ $password = $_POST['password'] ?? '';
 // Rate limiting
 $rate = check_login_rate_limit('patient_' . $email);
 if (!$rate['allowed']) {
-    set_flash('error', 'Percobaan Terkunci', $rate['message']);
-    header('Location: ' . base_url('login_pasien.php'));
-    exit;
+    respond_patient_login(false, $rate['message']);
 }
 
 if (empty($email) || empty($password)) {
-    set_flash('warning', 'Data Kosong', 'Email dan password akun pasien wajib diisi.');
-    header('Location: ' . base_url('login_pasien.php'));
-    exit;
+    respond_patient_login(false, 'Email dan password akun pasien wajib diisi.');
 }
 
 try {
@@ -61,26 +79,17 @@ try {
             $nama = 'Pasien';
         }
 
-        set_flash('success', 'Selamat Datang!', "Halo {$nama}, senang bertemu Anda kembali!");
-
         $intended = $_SESSION['intended_patient_url'] ?? '';
         unset($_SESSION['intended_patient_url']);
 
-        if ($intended && !str_contains($intended, 'login')) {
-            header('Location: ' . $intended);
-        } else {
-            header('Location: ' . base_url('pasien/dashboard.php'));
-        }
-        exit;
+        $target = ($intended && !str_contains($intended, 'login')) ? $intended : base_url('pasien/dashboard.php');
+
+        respond_patient_login(true, "Halo {$nama}, senang bertemu Anda kembali!", $target);
     } else {
         record_failed_login('patient_' . $email);
-        set_flash('error', 'Login Gagal', 'Email atau kata sandi tidak cocok.');
-        header('Location: ' . base_url('login_pasien.php'));
-        exit;
+        respond_patient_login(false, 'Email atau kata sandi yang Anda masukkan tidak cocok.');
     }
 } catch (Exception $e) {
-    set_flash('error', 'Kesalahan Sistem', 'Gagal memproses login: ' . $e->getMessage());
-    header('Location: ' . base_url('login_pasien.php'));
-    exit;
+    respond_patient_login(false, 'Gagal memproses login: ' . $e->getMessage());
 }
 
