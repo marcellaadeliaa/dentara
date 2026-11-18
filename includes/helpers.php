@@ -26,12 +26,17 @@ function base_url(string $path = ''): string {
             $dir = '/dentara';
         } else {
             $dir = str_replace('\\', '/', dirname($script));
-            // Jika file berada di subfolder (misal /admin, /pasien, /api)
+            // Bersihkan seluruh subfolder (termasuk subfolder bersarang seperti /includes/process)
             $subfolders = ['/admin', '/pasien', '/resepsionis', '/dokter', '/apoteker', '/kasir', '/tv', '/api', '/includes', '/process'];
-            foreach ($subfolders as $sub) {
-                if (str_ends_with($dir, $sub)) {
-                    $dir = substr($dir, 0, -strlen($sub));
-                    break;
+            $changed = true;
+            while ($changed) {
+                $changed = false;
+                foreach ($subfolders as $sub) {
+                    if (str_ends_with($dir, $sub)) {
+                        $dir = substr($dir, 0, -strlen($sub));
+                        $changed = true;
+                        break;
+                    }
                 }
             }
             if ($dir === '.' || $dir === '/') {
