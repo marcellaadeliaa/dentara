@@ -1,0 +1,201 @@
+/**
+ * DENTARA DESIGN SYSTEM - DESIGN TOKENS
+ * File: assets/css/design_tokens.css
+ * Tema: Klinik Gigi Modern, Hangat, Bersih, Profesional
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+  /* ====================================================================
+     1. COLOR PALETTE (Mint-Teal, Sky Blue, Tooth White, Honey Gold)
+     ==================================================================== */
+  /* Primary: Mint-Teal */
+  --primary-50: #F0FDFA;
+  --primary-100: #CCFBF1;
+  --primary-200: #99F6E4;
+  --primary-300: #5EEAD4;
+  --primary-400: #2DD4BF;
+  --primary: #2BB5A0;         /* Primary brand color */
+  --primary-teal: #2BB5A0;    /* Alias primary teal */
+  --primary-teal-dark: #0F766E;
+  --primary-teal-light: #CCFBF1;
+  --primary-600: #0D9488;
+  --primary-700: #0F766E;
+  --primary-800: #115E59;
+  --primary-900: #134E4A;
+  --primary-rgb: 43, 181, 160;
+
+  /* Secondary: Sky Blue (Menenangkan, steril, profesional) */
+  --secondary-50: #EFF6FF;
+  --secondary-100: #DBEAFE;
+  --secondary-300: #93C5FD;
+  --secondary: #5B9DF5;       /* Secondary brand color */
+  --accent-blue: #5B9DF5;     /* Alias accent blue */
+  --secondary-600: #2563EB;
+  --secondary-700: #1D4ED8;
+  --secondary-rgb: 91, 157, 245;
+
+  /* Accent: Soft Violet & Orange */
+  --accent-50: #F5F3FF;
+  --accent-100: #EDE9FE;
+  --accent: #8B7CF6;
+  --accent-purple: #8B7CF6;
+  --accent-orange: #F97316;
+  --accent-600: #7C3AED;
+  --accent-rgb: 139, 124, 246;
+
+  /* Highlight: Honey Gold (Gamifikasi, bintang bintang, reward ceria) */
+  --highlight-50: #FFFBEB;
+  --highlight-100: #FEF3C7;
+  --highlight: #FFD166;
+  --highlight-dark: #F59E0B;
+  --highlight-rgb: 255, 209, 102;
+
+  /* Base & Surface (Putih Gigi & Ice Blue) */
+  --bg-app: #F7FBFC;
+  --surface: #FFFFFF;
+  --surface-subtle: #F1F6F9;
+  --surface-elevated: #FFFFFF;
+  --border-color: #E2EBF0;
+  --border-focus: #2BB5A0;
+
+  /* Text & Typography Colors */
+  --text-main: #1E293B;       /* Slate 800 */
+  --text-muted: #64748B;      /* Slate 500 */
+  --text-light: #94A3B8;      /* Slate 400 */
+  --text-on-primary: #FFFFFF;
+
+  /* Semantic Status Colors */
+  --success: #10B981;
+  --success-light: #D1FAE5;
+  --success-dark: #065F46;
+
+  --warning: #F59E0B;
+  --warning-light: #FEF3C7;
+  --warning-dark: #92400E;
+
+  --danger: #EF4444;
+  --danger-light: #FEE2E2;
+  --danger-dark: #991B1B;
+
+  --info: #3B82F6;
+  --info-light: #DBEAFE;
+  --info-dark: #1E40AF;
+
+  /* Role Accent Specifics */
+  --role-admin: #8B7CF6;
+  --role-dokter: #2BB5A0;
+  --role-resepsionis: #5B9DF5;
+  --role-apoteker: #F97316;
+  --role-kasir: #10B981;
+  --role-pasien: #EC4899;
+
+  /* Gradients */
+  --grad-mint-blue: linear-gradient(135deg, #2BB5A0 0%, #5B9DF5 100%);
+  --grad-purple-blue: linear-gradient(135deg, #8B7CF6 0%, #5B9DF5 100%);
+  --grad-gold: linear-gradient(135deg, #FFD166 0%, #F59E0B 100%);
+  --grad-hero: linear-gradient(135deg, rgba(43,181,160,0.08) 0%, rgba(91,157,245,0.12) 100%);
+  --grad-card: linear-gradient(180deg, #FFFFFF 0%, #F8FBFC 100%);
+
+  /* ====================================================================
+     2. TYPOGRAPHY
+     ==================================================================== */
+  --font-heading: 'Fredoka', 'Quicksand', system-ui, -apple-system, sans-serif;
+  --font-body: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-md: 18px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 48px;
+
+  --lh-tight: 1.25;
+  --lh-snug: 1.4;
+  --lh-normal: 1.6;
+
+  /* ====================================================================
+     3. SPACING & SIZING
+     ==================================================================== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ====================================================================
+     4. BORDER RADIUS
+     ==================================================================== */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+
+  /* ====================================================================
+     5. SHADOWS & ELEVATION
+     ==================================================================== */
+  --shadow-sm: 0 2px 8px rgba(43, 181, 160, 0.08);
+  --shadow-md: 0 8px 24px rgba(43, 181, 160, 0.12);
+  --shadow-lg: 0 16px 40px rgba(43, 181, 160, 0.16);
+  --shadow-card: 0 4px 16px rgba(15, 23, 42, 0.04);
+  --shadow-glow: 0 0 20px rgba(43, 181, 160, 0.35);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout dimensions */
+  --sidebar-width: 260px;
+  --sidebar-collapsed-width: 80px;
+  --topbar-height: 70px;
+  --bottomnav-height: 64px;
+}
+
+/* ====================================================================
+   6. DARK THEME [data-theme="dark"]
+   ==================================================================== */
+[data-theme="dark"] {
+  --bg-app: #0B1320;
+  --surface: #131F33;
+  --surface-subtle: #1B2B45;
+  --surface-elevated: #1F3250;
+  --border-color: #243857;
+  --border-focus: #34D399;
+
+  --text-main: #F1F5F9;
+  --text-muted: #94A3B8;
+  --text-light: #64748B;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-glow: 0 0 25px rgba(43, 181, 160, 0.45);
+
+  --grad-hero: linear-gradient(135deg, rgba(43,181,160,0.12) 0%, rgba(91,157,245,0.14) 100%);
+  --grad-card: linear-gradient(180deg, #131F33 0%, #17263E 100%);
+
+  --success-light: rgba(16, 185, 129, 0.18);
+  --success-dark: #6EE7B7;
+
+  --warning-light: rgba(245, 158, 11, 0.18);
+  --warning-dark: #FCD34D;
+
+  --danger-light: rgba(239, 68, 68, 0.18);
+  --danger-dark: #FCA5A5;
+
+  --info-light: rgba(59, 130, 246, 0.18);
+  --info-dark: #93C5FD;
+}
+
