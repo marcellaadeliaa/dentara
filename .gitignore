@@ -1,28 +1,26 @@
-# Logs & Temp files
-*.log
-*.tmp
+# Composer & Vendor
+vendor/
+composer.lock
+
+# Environment & Local Config
+.env
+.env.local
+.env.*.local
+
+# Laragon / IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
 .DS_Store
 Thumbs.db
 
-# IDE
-.idea/
-.vscode/
+# Log files
+*.log
+logs/
 
-# Laragon / Server specifics
+# Temporary / Scratch
+tmp/
+temp/
+scratch/
 
-# Environment & secrets
-.env
-.env.*
-!.env.example
-
-# Dependencies
-/vendor/
-/node_modules/
-
-# Local database files
-*.sqlite
-*.db
-
-# Backup files
-*.bak
-*.sql~
