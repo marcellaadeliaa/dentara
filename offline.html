@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koneksi Terputus (Offline) - DENTARA</title>
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/design_tokens.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/modern_ui.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-app);
+            padding: 20px;
+            text-align: center;
+        }
+        .offline-card {
+            background: var(--surface);
+            padding: 40px 32px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            max-width: 480px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-card fade-in">
+        <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:20px;">
+            <circle cx="50" cy="50" r="46" fill="#F1F5F9"/>
+            <path d="M35 24C20 24 16 38 16 54C16 70 22 78 30 90C34 94 40 94 43 86C46 76 54 76 57 86C60 94 66 94 70 90C78 78 84 70 84 54C84 38 80 24 65 24C57 24 53 30 50 30C47 30 43 24 35 24Z" fill="#CBD5E1"/>
+            <!-- Closed sleepy eyes -->
+            <path d="M34 50C36 46 42 46 44 50" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
+            <path d="M56 50C58 46 64 46 66 50" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
+            <!-- Sad/Neutral mouth -->
+            <path d="M42 66C46 62 54 62 58 66" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
+            <!-- Wifi cross icon -->
+            <circle cx="78" cy="24" r="14" fill="#EF4444"/>
+            <path d="M73 19L83 29M83 19L73 29" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+
+        <h1 style="font-size:26px; color:var(--text-main); margin-bottom:8px;">Koneksi Internet Terputus</h1>
+        <p style="color:var(--text-muted); font-size:15px; line-height:1.6; margin-bottom:24px;">
+            Ups, sepertinya perangkat Anda sedang offline. Mohon periksa kembali koneksi internet atau Wi-Fi Anda untuk melanjutkan.
+        </p>
+
+        <button class="btn btn-primary btn-md" onclick="window.location.reload()">
+            Coba Muat Ulang Halaman
+        </button>
+    </div>
+</body>
+</html>
+
